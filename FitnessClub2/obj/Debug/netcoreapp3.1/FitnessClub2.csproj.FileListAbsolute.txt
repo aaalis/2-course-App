@@ -17,3 +17,7 @@ D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\FitnessClub2.pdb
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\FitnessClub2.genruntimeconfig.cache
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\MainWindow.g.cs
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\MainWindow.baml
+D:\LABS\C#\FitnessClub2\FitnessClub2\bin\Debug\netcoreapp3.1\MaterialDesignColors.dll
+D:\LABS\C#\FitnessClub2\FitnessClub2\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\App.baml
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\FitnessClub2.csproj.CopyComplete
