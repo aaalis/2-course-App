@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="FitnessClub2"
-        xmlns:viewmodels="FitnessClub2.ViewModel"
-        xmlns:view="FitnessClub2.View"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="FitnessClub2.MainWindow"
+        xmlns:local="clr-namespace:FitnessClub2"
+        xmlns:viewmodels="clr-namespace:FitnessClub2.ViewModel"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:view="clr-namespace:FitnessClub2.View"
+        x:Class="FitnessClub2.MainWindow"
         mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterOwner" 
         AllowsTransparency="True" ResizeMode="CanResizeWithGrip" 
         Width="1150" Height="800" 
@@ -44,11 +45,12 @@
         </DataTemplate>
         <DataTemplate x:Name="ClientCardTemplate" DataType="{x:Type viewmodels:ClientCardViewModel}">
             <view:ClientCardControl DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="ClientTemplate" DataType="{x:Type viewmodels:ClientViewModel}">
+        </DataTemplate>-->
+        <DataTemplate x:Name="ClientTemplate" 
+                      DataType="{x:Type viewmodels:ClientViewModel}">
             <view:ClientControl DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="WorkoutCardTemplate" DataType="{x:Type viewmodels:WorkoutCardViewModel}">
+        <!--<DataTemplate x:Name="WorkoutCardTemplate" DataType="{x:Type viewmodels:WorkoutCardViewModel}">
             <view:WorkoutCardControl DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate x:Name="WorkShiftCardTemplate" DataType="{x:Type viewmodels:WorkShiftCardViewModel}">

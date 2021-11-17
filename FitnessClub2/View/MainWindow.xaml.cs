@@ -1,4 +1,5 @@
 ﻿using FitnessClub2.ViewModel;
+using FitnessClub2.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;

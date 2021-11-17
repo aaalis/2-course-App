@@ -1,4 +1,6 @@
-﻿using FitnessClub2.ViewModel.Commands;
+﻿using FitnessClub2.ViewModel;
+using FitnessClub2.View;
+using FitnessClub2.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,11 +42,11 @@ namespace FitnessClub2.ViewModel
             Environment.Exit(0);
         }));
 
-        //private Command clientsCommand;
-        //public Command ClientsCommand => clientsCommand ?? (clientsCommand = new Command(obj =>
-        //{
-        //    MainContentViewModel = ClientViewModel.Instance;
-        //}));
+        private Command clientsCommand;
+        public Command ClientsCommand => clientsCommand ?? (clientsCommand = new Command(obj =>
+        {
+            MainContentViewModel = ClientViewModel.Instance;
+        }));
 
         //private Command branchesCommand;
         //public Command BranchesCommand => branchesCommand ?? (branchesCommand = new Command(obj =>
