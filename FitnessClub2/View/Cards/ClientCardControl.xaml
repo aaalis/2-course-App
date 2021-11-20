@@ -350,15 +350,15 @@
                         VerticalAlignment="Center">
                 <TextBox
                     materialDesign:HintAssist.Hint="Имя"
-                    Text="{Binding Client.Name}"
+                    Text="{Binding Name}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox
                     materialDesign:HintAssist.Hint="Номер телефона"
-                    Text="{Binding Client.Phonenum}"
+                    Text="{Binding Phonenum}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox
                     materialDesign:HintAssist.Hint="Дата рождения"
-                    Text="{Binding Client.Birthday}"
+                    Text="{Binding Birthday}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
         </materialDesign:Card>

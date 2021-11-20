@@ -33,10 +33,11 @@ namespace FitnessClub2.ViewModel
                 {
                     Client client = new Client();
                     client.Name = "new";
+                    Clients.RemoveAt(Clients.Count-1);
                     Clients.Insert(0, client);
                     MainWindowViewModel main = MainWindowViewModel.Instance;
                     ClientCardViewModel clientCard = ClientCardViewModel.Instance;
-                    clientCard.Client = client;
+                    clientCard.MoveData(client);
                     main.MainContentViewModel = clientCard;
                 }));
             }
@@ -51,7 +52,7 @@ namespace FitnessClub2.ViewModel
                 {
                     MainWindowViewModel main = MainWindowViewModel.Instance;
                     ClientCardViewModel clientCard = ClientCardViewModel.Instance;
-                    clientCard.Client = SelectedClient;
+                    clientCard.MoveData(SelectedClient);
                     main.MainContentViewModel = clientCard;
                 }));
             }
