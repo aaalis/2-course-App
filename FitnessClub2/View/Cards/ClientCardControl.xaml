@@ -354,11 +354,11 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox
                     materialDesign:HintAssist.Hint="Номер телефона"
-                    Text="{Binding Client.PhoneNum}"
+                    Text="{Binding Client.Phonenum}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox
                     materialDesign:HintAssist.Hint="Дата рождения"
-                    Text="{Binding Client.BirthDay}"
+                    Text="{Binding Client.Birthday}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
         </materialDesign:Card>

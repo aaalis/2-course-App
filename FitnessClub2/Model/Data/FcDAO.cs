@@ -8,19 +8,47 @@ using System.Text;
 
 namespace FitnessClub2.Model.Data
 {
-    class FcDAO
+    public static class FcDAO
     {
         static FCContext context = new FCContext();
 
-        public static IEnumerable<T> Get<T>() where T : BaseModel
-        {
+        public static List<T> Get<T>() where T : BaseModel
+        {            
             try
             {
-                var field = FindField(typeof(T));
+                FieldInfo field = FindField(typeof(T));
 
-                var value = (InternalDbSet<T>)field.GetValue(context);
+                InternalDbSet<T> value = (InternalDbSet<T>)field.GetValue(context);
 
                 return value.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Исключение: {ex.Message}");
+                Console.WriteLine($"Метод: {ex.TargetSite}");
+                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
+                return null;
+            }
+        }
+
+        public static List<T> Get<T>(int count) where T : BaseModel
+        {            
+            try
+            {
+                FieldInfo field = FindField(typeof(T));
+
+                InternalDbSet<T> value = (InternalDbSet<T>)field.GetValue(context);
+
+                int length = value.Count();
+
+                if (length <= count)
+                {
+                    return value.ToList();
+                }
+                else
+                {
+                    return value.ToList().GetRange(length - count, count);
+                }
             }
             catch (Exception ex)
             {
@@ -35,9 +63,9 @@ namespace FitnessClub2.Model.Data
         {
             try
             {
-                var field = FindField(typeof(T));
+                FieldInfo field = FindField(typeof(T));
 
-                var value = (InternalDbSet<T>)field.GetValue(context);
+                InternalDbSet<T> value = (InternalDbSet<T>)field.GetValue(context);
 
                 value.Add((T)obj);
 
@@ -73,34 +101,6 @@ namespace FitnessClub2.Model.Data
 
         private static FieldInfo FindField(Type type)
         {
-            //List<FieldInfo> fields = typeof(FCContext).GetFields(BindingFlags.Instance | BindingFlags.NonPublic).ToList();
-
-            //foreach (var item in fields)
-            //{
-            //    var test = item.GetValue(context).GetType().GetGenericArguments()[0].Name;
-
-            //    if (test == type.Name)
-            //    {
-            //        try
-            //        {
-            //            var value = (InternalDbSet<Client>)item.GetValue(context);
-
-
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            Console.WriteLine($"Исключение: {ex.Message}");
-            //            Console.WriteLine($"Метод: {ex.TargetSite}");
-            //            Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
-            //        }
-            //    }
-            //}
-            //return null;
-
-            //List<FieldInfo> fields = typeof(FCContext).GetFields(BindingFlags.Instance | BindingFlags.NonPublic).ToList();
-
-            //FieldInfo field = fields.Where(x => x.GetValue(context).GetType().GetGenericArguments()[0].Name == type.Name).Single();
-
             return typeof(FCContext).GetFields(BindingFlags.Instance | BindingFlags.NonPublic)
                    .ToList()
                    .Where(x => x.GetValue(context).GetType().GetGenericArguments()[0].Name == type.Name)

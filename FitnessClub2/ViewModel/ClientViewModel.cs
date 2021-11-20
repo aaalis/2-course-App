@@ -1,11 +1,15 @@
 ﻿using FitnessClub2.Model.Classes;
 using FitnessClub2.Model.Data;
+using FitnessClub2.View;
 using FitnessClub2.ViewModel.Cards;
 using FitnessClub2.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Windows.Controls;
 
 namespace FitnessClub2.ViewModel
 {
@@ -52,11 +56,10 @@ namespace FitnessClub2.ViewModel
                 }));
             }
         }
-
-
+        
         public ClientViewModel()
         {
-            Clients = FcDAO.Get<Client>().ToList();
+            Clients = FcDAO.Get<Client>(LISTLENGTH);
         }
     }
 }

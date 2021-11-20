@@ -6,6 +6,8 @@ namespace FitnessClub2.ViewModel
 {
     abstract class BaseViewModel<T> : DependencyObject, INotifyPropertyChanged where T : BaseViewModel<T>, new()
     {
+        protected const int LISTLENGTH = 11;
+        
         private static T _instance = new T();
         public static T Instance
         {
