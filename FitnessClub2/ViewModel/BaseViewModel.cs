@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using FitnessClub2.Model.Classes;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 

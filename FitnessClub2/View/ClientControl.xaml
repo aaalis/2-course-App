@@ -66,7 +66,7 @@
                     Content="Результат" 
                     VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <Grid Background="White">
-                <ListView ItemsSource="{Binding Clients}" 
+                <ListView ItemsSource="{Binding FilteredListClients}" 
                           FontSize="12" 
                           SelectedItem="{Binding SelectedClient}">
                     <i:Interaction.Triggers>

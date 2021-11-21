@@ -38,6 +38,7 @@
                             Content="Удалить" 
                             Margin="10"/>
                     <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
+                            Command="{Binding ChangeCommand}"
                             Content="Изменить" 
                             Margin="10"/>
                 </StackPanel>
@@ -395,15 +396,15 @@
                         VerticalAlignment="Center">
                 <TextBox
                     materialDesign:HintAssist.Hint="Имя"
-                    Text="{Binding Name}"
+                    Text="{Binding NameTextBox}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox
                     materialDesign:HintAssist.Hint="Номер телефона"
-                    Text="{Binding Phonenum}"
+                    Text="{Binding PhonenumTextBox}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox
                     materialDesign:HintAssist.Hint="Дата рождения"
-                    Text="{Binding Birthday}"
+                    Text="{Binding BirthdayTextBox}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
         </materialDesign:Card>

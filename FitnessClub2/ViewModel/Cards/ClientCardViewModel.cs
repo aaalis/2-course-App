@@ -1,14 +1,18 @@
 ﻿using FitnessClub2.Model.Classes;
+using FitnessClub2.ViewModel.Commands;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Controls;
 
 namespace FitnessClub2.ViewModel.Cards
 {
     class ClientCardViewModel : BaseViewModel<ClientCardViewModel>
     {
+        #region Properties
+
         private Client client;
         public Client Client
         {
@@ -16,40 +20,50 @@ namespace FitnessClub2.ViewModel.Cards
             set
             {
                 client = value;
-                OnPropertyChanged("client");
+                OnPropertyChanged();
             }
         }
 
-        private string name;
-        public string Name
+        private string nameTextBox;
+        public string NameTextBox
         {
-            get { return name; }
+            get { return nameTextBox; }
             set
             {
-                name = value;
-                OnPropertyChanged("name");
+                nameTextBox = value;
+                OnPropertyChanged();
             }
         }
 
-        private string phonenum;
-        public string Phonenum
+        private string phonenumTextBox;
+        public string PhonenumTextBox
         {
-            get { return phonenum; }
+            get { return phonenumTextBox; }
             set
             {
-                phonenum = value;
-                OnPropertyChanged("phonenum");
+                phonenumTextBox = value;
+                OnPropertyChanged();
             }
         }
 
-        private string birthday;
-        public string Birthday
+        private DateTime? birthdayTextBox;
+        public DateTime? BirthdayTextBox
         {
-            get { return birthday; }
+            get 
+            {
+                if (birthdayTextBox.HasValue)
+                {
+                    return birthdayTextBox.Value.Date;
+                }
+                else
+                {
+                    return null;
+                }
+            }
             set 
             {
-                birthday = value;
-                OnPropertyChanged("birthday");
+                birthdayTextBox = value;
+                OnPropertyChanged();
             }
         }
 
@@ -60,7 +74,7 @@ namespace FitnessClub2.ViewModel.Cards
             set 
             {
                 clientWorkouts = value;
-                OnPropertyChanged("ClientWorkouts");
+                OnPropertyChanged();
             }
         }
 
@@ -71,7 +85,7 @@ namespace FitnessClub2.ViewModel.Cards
             set
             { 
                 cards = value;
-                OnPropertyChanged("cards");
+                OnPropertyChanged();
             }
         }
         
@@ -82,7 +96,7 @@ namespace FitnessClub2.ViewModel.Cards
             set
             {
                 contracts = value;
-                OnPropertyChanged("contracts");
+                OnPropertyChanged();
             }
         }
 
@@ -93,7 +107,7 @@ namespace FitnessClub2.ViewModel.Cards
             set
             {
                 payments = value;
-                OnPropertyChanged("payments");
+                OnPropertyChanged();
             }
         }
 
@@ -108,7 +122,28 @@ namespace FitnessClub2.ViewModel.Cards
                 OnPropertyChanged("visits");
             }
         }
+        #endregion
 
+        #region Commands
+        private Command changeCommand;
+        public Command ChangeCommand => changeCommand ?? (changeCommand = new Command(obj =>
+        {
+            try
+            {
+                Client.Birthday = BirthdayTextBox;
+                Client.Name = NameTextBox;
+                Client.Phonenum = PhonenumTextBox;
+                Save(Client);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Исключение: {ex.Message}");
+                Console.WriteLine($"Метод: {ex.TargetSite}");
+                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
+            }
+        }));
+
+        #endregion
 
         public void MoveData(Client client)
         {
@@ -116,18 +151,20 @@ namespace FitnessClub2.ViewModel.Cards
             {
                 Client = client;
 
-                Name = Client.Name;
+                NameTextBox = Client.Name;
 
-                if (Client.Birthday.HasValue)
-                {
-                    Birthday = Client.Birthday.Value.ToShortDateString();
-                }
-                else
-                {
-                    Birthday = "";
-                }
+                BirthdayTextBox = Client.Birthday;
 
-                Phonenum = Client.Phonenum;
+                //if (Client.Birthday.HasValue)
+                //{
+                //    BirthdayTextBox = Client.Birthday.Value.ToShortDateString();
+                //}
+                //else
+                //{
+                //    BirthdayTextBox = "";
+                //}
+
+                PhonenumTextBox = Client.Phonenum;
 
                 ClientWorkouts = fc.ClientsWorkouts.Include(x => x.Workout)
                                                         .ThenInclude(x => x.Hall)
@@ -152,6 +189,20 @@ namespace FitnessClub2.ViewModel.Cards
                                       .ToList();
 
                 Visits = Cards.SelectMany(x => x.Visits).ToList();
+            }
+        }
+
+        private void Save(Client client)
+        {
+            using (FCContext context = new FCContext())
+            {
+                Client clientDb = context.Clients.FirstOrDefault(x => x.ClientId == client.ClientId);
+
+                clientDb.Name = client.Name;
+                clientDb.Phonenum = client.Phonenum;
+                clientDb.Birthday = client.Birthday;
+
+                context.SaveChanges();
             }
         }
 
