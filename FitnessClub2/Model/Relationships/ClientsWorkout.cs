@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace FitnessClub2
 {
-    public partial class ClientsWorkout
+    public class ClientsWorkout
     {
         public int WorkoutId { get; set; }
         public int ClientId { get; set; }

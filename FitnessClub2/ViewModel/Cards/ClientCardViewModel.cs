@@ -1,12 +1,25 @@
 ﻿using FitnessClub2.Model.Classes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FitnessClub2.ViewModel.Cards
 {
     class ClientCardViewModel : BaseViewModel<ClientCardViewModel>
     {
+        private Client client;
+        public Client Client
+        {
+            get { return client; }
+            set
+            {
+                client = value;
+                OnPropertyChanged("client");
+            }
+        }
+
         private string name;
         public string Name
         {
@@ -40,34 +53,39 @@ namespace FitnessClub2.ViewModel.Cards
             }
         }
 
-
-        private Client client;
-        public Client Client
+        private List<Workout> clientWorkouts;
+        public List<Workout> ClientWorkouts
         {
-            get { return client; }
-            set
+            get { return clientWorkouts; }
+            set 
             {
-                client = value;
-                OnPropertyChanged("client");
+                clientWorkouts = value;
+                OnPropertyChanged("ClientWorkouts");
             }
         }
 
+
         public void MoveData(Client client)
         {
-            Client = client;
-            
-            Name = Client.Name;
-            
-            if (Client.Birthday.HasValue)
+            using (FCContext fc = new FCContext())
             {
-                Birthday = Client.Birthday.Value.ToShortDateString();
+                Client = client;
+
+                Name = Client.Name;
+
+                if (Client.Birthday.HasValue)
+                {
+                    Birthday = Client.Birthday.Value.ToShortDateString();
+                }
+                else
+                {
+                    Birthday = "";
+                }
+
+                Phonenum = Client.Phonenum;
+
+                ClientWorkouts = fc.ClientsWorkouts.Where(x => x.ClientId == Client.ClientId).Select(x => x.Workout).Include(x=>x.Service).ToList();
             }
-            else
-            {
-                Birthday = "";
-            }
-            
-            Phonenum = Client.Phonenum;
         }
 
         public ClientCardViewModel() {}

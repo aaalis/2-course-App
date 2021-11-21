@@ -10,12 +10,12 @@ namespace FitnessClub2
     public partial class FCContext : DbContext
     {
         public FCContext()
-        {
-        }
+        { }
 
         public FCContext(DbContextOptions<FCContext> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<Branch> Branches { get; set; }

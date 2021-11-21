@@ -69,8 +69,12 @@
                         <TextBlock Text="Занятия" FontSize="15"/>
                     </StackPanel>
                 </TabItem.Header>
-                <DataGrid FontSize="12" materialDesign:DataGridAssist.CornerRadius="0" 
-                              x:Name="ClientWorkout" AutoGenerateColumns="false" IsReadOnly="True">
+                <DataGrid FontSize="12" 
+                          materialDesign:DataGridAssist.CornerRadius="0" 
+                          x:Name="ClientWorkout" 
+                          AutoGenerateColumns="false"
+                          ItemsSource="{Binding ClientWorkouts}"
+                          IsReadOnly="True">
                     <DataGrid.Resources>
                         <Style TargetType="DataGrid">
                             <Setter Property="Background" Value="#FF455A64"/>
@@ -93,24 +97,39 @@
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
+                        <!--<Style TargetType="DataGridCell">
+                            <Setter Property="TextWrapping"
+                        </Style>-->
                     </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Начало занятия" Width="auto" 
-                                            x:Name="WorkoutBeginTime" Binding="{Binding Path=BeginTime}"/>
-                        <DataGridTextColumn Header="Конец занятия" Width="auto" 
-                                            x:Name="WorkoutEndTime" Binding="{Binding Path=EndTime}"/>
-                        <DataGridTextColumn Header="Вид занятия" Width="auto" 
-                                            x:Name="WorkoutTypeTraining" Binding="{Binding Path=TypeTraining}"/>
-                        <DataGridTextColumn Header="Зал" Width="auto" 
-                                            x:Name="WorkoutHall" Binding="{Binding Path=Hall.Name}"/>
-                        <DataGridTextColumn Header="Услуга" Width="auto" 
-                                            x:Name="WorkoutService" Binding="{Binding Path=Service.Name}"/>
-                        <DataGridTextColumn Header="Тренера" Width="auto" 
-                                            x:Name="WorkoutTrainer" Binding="{Binding Path=ListTrainer}"/>
+                        <DataGridTextColumn Header="Начало занятия" 
+                                            Width="*" 
+                                            x:Name="WorkoutBeginningtime" 
+                                            Binding="{Binding Beginningtime}"/>
+                        <DataGridTextColumn Header="Конец занятия"
+                                            Width="*"
+                                            x:Name="WorkoutEndtime" 
+                                            Binding="{Binding Endtime}"/>
+                        <!--<DataGridTextColumn Header="Вид занятия" 
+                                            Width="auto" 
+                                            x:Name="WorkoutTypeTraining" 
+                                            Binding="{Binding Path=TypeTraining}"/>-->
+                        <DataGridTextColumn Header="Зал" 
+                                            Width="*"
+                                            x:Name="WorkoutHall" 
+                                            Binding="{Binding ClientWorkouts.Hall.Name}"/>
+                        <DataGridTextColumn Header="Услуга" 
+                                            Width="*" 
+                                            x:Name="WorkoutService" 
+                                            Binding="{Binding Service.Name}"/>
+                        <DataGridTextColumn Header="Тренер" 
+                                            Width="*" 
+                                            x:Name="WorkoutEmployee" 
+                                            Binding="{Binding Path=Employee.Name}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <TabItem Style="{DynamicResource TabItemStyle1}">
+            <!--<TabItem Style="{DynamicResource TabItemStyle1}">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Notifications" 
@@ -152,7 +171,7 @@
                                             x:Name="NotifMessage" Binding="{Binding Path=Message}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-            </TabItem>
+            </TabItem>-->
             <TabItem Style="{DynamicResource TabItemStyle1}">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
