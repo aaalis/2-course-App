@@ -129,8 +129,11 @@ namespace FitnessClub2.ViewModel.Cards
         public Command ChangeCommand => changeCommand ?? (changeCommand = new Command(obj =>
         {
             Client.Birthday = BirthdayTextBox;
+
             Client.Name = NameTextBox;
+            
             Client.Phonenum = PhonenumTextBox;
+            
             Save(Client);
         }));
 
@@ -139,10 +142,15 @@ namespace FitnessClub2.ViewModel.Cards
         public Command DeleteCommand => deleteCommand ?? (deleteCommand = new Command(obj =>
         {
             Delete(Client);
+            
             MainWindowViewModel main = MainWindowViewModel.Instance;
+            
             ClientViewModel clientViewModel = ClientViewModel.Instance;
+            
             int indexClient = clientViewModel.FilteredListClients.FindIndex(x => x.ClientId == Client.ClientId);
+            
             clientViewModel.FilteredListClients.RemoveAt(indexClient);
+            
             main.MainContentViewModel = clientViewModel;
         }));
         

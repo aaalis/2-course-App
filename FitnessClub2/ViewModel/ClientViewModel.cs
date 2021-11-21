@@ -3,6 +3,7 @@ using FitnessClub2.ViewModel.Cards;
 using FitnessClub2.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 
@@ -10,6 +11,28 @@ namespace FitnessClub2.ViewModel
 {
     class ClientViewModel : BaseViewModel<ClientViewModel>
     {
+        private string filterName = null;
+        public string FilterName
+        {
+            get { return filterName; }
+            set 
+            { 
+                filterName = value;
+                UpdateFilteredListClients(filterName);
+            }
+        }
+
+        private string filterPhonenum = null;
+        public string FilterPhonenum
+        {
+            get { return filterPhonenum; }
+            set 
+            { 
+                filterPhonenum = value;
+                UpdateFilteredListClients(filterPhonenum);
+            }
+        }
+
         private Client selectedClient;
         public Client SelectedClient
         {
@@ -28,14 +51,23 @@ namespace FitnessClub2.ViewModel
                 return addClient ?? (addClient = new Command(obj =>
                 {
                     Client client = new Client();
+                    
                     DateTime dateTime = DateTime.Now;
+                    
                     client.Name = $"new + {dateTime}";
+                    
                     FilteredListClients.RemoveAt(FilteredListClients.Count-1);
+                    
                     FilteredListClients.Insert(0, client);
+                    
                     MainWindowViewModel main = MainWindowViewModel.Instance;
+                    
                     ClientCardViewModel clientCard = ClientCardViewModel.Instance;
+                    
                     clientCard.MoveData(client);
+                    
                     main.MainContentViewModel = clientCard;
+                    
                     Save(client);
                 }));
             }
@@ -49,8 +81,11 @@ namespace FitnessClub2.ViewModel
                 return editClient ?? (editClient = new Command(obj =>
                 {
                     MainWindowViewModel main = MainWindowViewModel.Instance;
+                    
                     ClientCardViewModel clientCard = ClientCardViewModel.Instance;
+                    
                     clientCard.MoveData(SelectedClient);
+                    
                     main.MainContentViewModel = clientCard;
                 }));
             }
@@ -61,8 +96,15 @@ namespace FitnessClub2.ViewModel
             using (FCContext context = new FCContext())
             {
                 context.Clients.Add(client);
+                
                 context.SaveChanges();
             }
+        }
+
+        private void UpdateFilteredListClients(string value)
+        {
+            FilteredListClients = AllClients.Where(x => x.Name.Contains(value) | x.Name == value | x.Phonenum.Contains(value) | x.Phonenum == value).ToList();
+            OnPropertyChanged("FilteredListClients");
         }
         
         public ClientViewModel()
@@ -77,7 +119,7 @@ namespace FitnessClub2.ViewModel
                 }
                 else
                 {
-                    FilteredListClients = AllClients.GetRange(AllClients.Count - LISTLENGTH, LISTLENGTH);
+                    FilteredListClients = AllClients.ToList().GetRange(AllClients.ToList().Count - LISTLENGTH, LISTLENGTH);
                 }
             }
         }

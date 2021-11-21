@@ -28,19 +28,23 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <StackPanel>
-                                <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
-                                Content="Найти" 
-                                Margin="10"/>
+                                <Button  
+                                        Content="Поиск" 
+                                        Background="{DynamicResource PrimaryHueMidBrush}"
+                                        Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                                        Margin="10"/>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBox Margin="10,0,5,0"
                                              MinWidth="100"
                                              Height="25"
+                                             Text="{Binding FilterName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                              BorderBrush="Black"
                                              materialDesign:HintAssist.Hint="Имя" 
                                              Background="White"/>
                                     <TextBox Margin="5,0,10,0"
                                              MinWidth="100"
                                              Height="25"
+                                             Text="{Binding FilterPhonenum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                              BorderBrush="Black"
                                              materialDesign:HintAssist.Hint="Номер телефона"
                                              Background="White"/>
@@ -66,7 +70,7 @@
                     Content="Результат" 
                     VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <Grid Background="White">
-                <ListView ItemsSource="{Binding FilteredListClients}" 
+                <ListView ItemsSource="{Binding FilteredListClients, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                           FontSize="12" 
                           SelectedItem="{Binding SelectedClient}">
                     <i:Interaction.Triggers>
@@ -78,7 +82,6 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Name}"
-                                            
                                             Header="Имя" />
                             <GridViewColumn DisplayMemberBinding="{Binding BirthDay}"
                                             Header="Дата рождения" />
