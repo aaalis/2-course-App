@@ -69,7 +69,8 @@ namespace FitnessClub2.ViewModel
         {
             using (FCContext fc = new FCContext())
             {
-                AllClients = fc.Clients.ToList();
+                AllClients = fc.Clients.Where(x => x.IsDeleted != true).ToList();
+
                 if (LISTLENGTH >= AllClients.Count)
                 {
                     FilteredListClients = AllClients;
@@ -78,8 +79,6 @@ namespace FitnessClub2.ViewModel
                 {
                     FilteredListClients = AllClients.GetRange(AllClients.Count - LISTLENGTH, LISTLENGTH);
                 }
-                
-                
             }
         }
     }

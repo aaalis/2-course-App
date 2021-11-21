@@ -34,7 +34,8 @@
                                  Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
                 <StackPanel Orientation="Horizontal" 
                             HorizontalAlignment="Center">
-                    <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
+                    <Button Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                            Command="{Binding DeleteCommand}"
                             Content="Удалить" 
                             Margin="10"/>
                     <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
@@ -404,7 +405,7 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox
                     materialDesign:HintAssist.Hint="Дата рождения"
-                    Text="{Binding BirthdayTextBox}"
+                    Text="{Binding BirthdayTextBox, StringFormat=dd/MM/yyyy}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             </StackPanel>
         </materialDesign:Card>

@@ -53,7 +53,7 @@ namespace FitnessClub2.ViewModel.Cards
             {
                 if (birthdayTextBox.HasValue)
                 {
-                    return birthdayTextBox.Value.Date;
+                    return birthdayTextBox.Value;
                 }
                 else
                 {
@@ -128,20 +128,25 @@ namespace FitnessClub2.ViewModel.Cards
         private Command changeCommand;
         public Command ChangeCommand => changeCommand ?? (changeCommand = new Command(obj =>
         {
-            try
-            {
-                Client.Birthday = BirthdayTextBox;
-                Client.Name = NameTextBox;
-                Client.Phonenum = PhonenumTextBox;
-                Save(Client);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Исключение: {ex.Message}");
-                Console.WriteLine($"Метод: {ex.TargetSite}");
-                Console.WriteLine($"Трассировка стека: {ex.StackTrace}");
-            }
+            Client.Birthday = BirthdayTextBox;
+            Client.Name = NameTextBox;
+            Client.Phonenum = PhonenumTextBox;
+            Save(Client);
         }));
+
+        private Command deleteCommand;
+
+        public Command DeleteCommand => deleteCommand ?? (deleteCommand = new Command(obj =>
+        {
+            Delete(Client);
+            MainWindowViewModel main = MainWindowViewModel.Instance;
+            ClientViewModel clientViewModel = ClientViewModel.Instance;
+            int indexClient = clientViewModel.FilteredListClients.FindIndex(x => x.ClientId == Client.ClientId);
+            clientViewModel.FilteredListClients.RemoveAt(indexClient);
+            main.MainContentViewModel = clientViewModel;
+        }));
+        
+
 
         #endregion
 
@@ -154,15 +159,6 @@ namespace FitnessClub2.ViewModel.Cards
                 NameTextBox = Client.Name;
 
                 BirthdayTextBox = Client.Birthday;
-
-                //if (Client.Birthday.HasValue)
-                //{
-                //    BirthdayTextBox = Client.Birthday.Value.ToShortDateString();
-                //}
-                //else
-                //{
-                //    BirthdayTextBox = "";
-                //}
 
                 PhonenumTextBox = Client.Phonenum;
 
@@ -201,6 +197,18 @@ namespace FitnessClub2.ViewModel.Cards
                 clientDb.Name = client.Name;
                 clientDb.Phonenum = client.Phonenum;
                 clientDb.Birthday = client.Birthday;
+
+                context.SaveChanges();
+            }
+        }
+
+        private void Delete(Client client)
+        {
+            using (FCContext context = new FCContext())
+            {
+                Client clientDb = context.Clients.FirstOrDefault(x=>x.ClientId == client.ClientId);
+
+                clientDb.IsDeleted = true;
 
                 context.SaveChanges();
             }
