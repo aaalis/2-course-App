@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FitnessClub2.Model.Classes
 {
-    public partial class Payment
+    public class Payment : BaseModel
     {
         public int PaymentId { get; set; }
         public DateTime Time { get; set; }

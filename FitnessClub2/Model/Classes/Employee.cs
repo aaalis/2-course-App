@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FitnessClub2.Model.Classes
 {
-    public partial class Employee
+    public class Employee : BaseModel
     {
         public Employee()
         {

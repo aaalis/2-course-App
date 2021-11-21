@@ -26,7 +26,7 @@ namespace FitnessClub2.Model.Classes
         public virtual Branch Branch { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Hall Hall { get; set; }
-        public Service Service { get; set; }
+        public virtual Service Service { get; set; }
         public virtual ICollection<ClientsWorkout> ClientsWorkouts { get; set; }
     }
 }

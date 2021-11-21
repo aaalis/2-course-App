@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FitnessClub2.Model.Classes
 {
-    public class Service
+    public class Service : BaseModel
     {
         public Service()
         {

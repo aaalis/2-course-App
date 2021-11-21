@@ -64,6 +64,51 @@ namespace FitnessClub2.ViewModel.Cards
             }
         }
 
+        private List<Clientcard> cards;
+        public List<Clientcard> Cards
+        {
+            get { return cards; }
+            set
+            { 
+                cards = value;
+                OnPropertyChanged("cards");
+            }
+        }
+        
+        private List<Contract> contracts;
+        public List<Contract> Contracts
+        {
+            get { return contracts; }
+            set
+            {
+                contracts = value;
+                OnPropertyChanged("contracts");
+            }
+        }
+
+        private List<Payment> payments;
+        public List<Payment> Payments
+        {
+            get { return payments; }
+            set
+            {
+                payments = value;
+                OnPropertyChanged("payments");
+            }
+        }
+
+        private List<Visit> visits;
+
+        public List<Visit> Visits
+        {
+            get { return visits; }
+            set 
+            { 
+                visits = value;
+                OnPropertyChanged("visits");
+            }
+        }
+
 
         public void MoveData(Client client)
         {
@@ -84,7 +129,29 @@ namespace FitnessClub2.ViewModel.Cards
 
                 Phonenum = Client.Phonenum;
 
-                ClientWorkouts = fc.ClientsWorkouts.Where(x => x.ClientId == Client.ClientId).Select(x => x.Workout).Include(x=>x.Service).ToList();
+                ClientWorkouts = fc.ClientsWorkouts.Include(x => x.Workout)
+                                                        .ThenInclude(x => x.Hall)
+                                                   .Include(x => x.Workout)
+                                                        .ThenInclude(x => x.Employee)
+                                                   .Include(x => x.Workout)
+                                                        .ThenInclude(x => x.Service)
+                                                   .Where(x=>x.ClientId == Client.ClientId)
+                                                   .Select(x=>x.Workout)
+                                                   .ToList();
+
+                Cards = fc.Clientcards.Include(x=>x.Visits)
+                                      .ThenInclude(x=>x.Branch)
+                                      .Where(x => x.ClientId == Client.ClientId)
+                                      .ToList();
+
+                Contracts = fc.Contracts.Include(x=>x.Pass)
+                                        .Where(x => x.ClientId == Client.ClientId)
+                                        .ToList();
+
+                Payments = fc.Payments.Where(x => x.ClientId == Client.ClientId)
+                                      .ToList();
+
+                Visits = Cards.SelectMany(x => x.Visits).ToList();
             }
         }
 

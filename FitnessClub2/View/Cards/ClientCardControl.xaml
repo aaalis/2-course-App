@@ -17,39 +17,63 @@
             <RowDefinition />
             <RowDefinition MinHeight="225"/>
         </Grid.RowDefinitions>
-        <StackPanel Margin="10" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <materialDesign:PackIcon Kind="Account" Width="auto" Height="auto" MaxHeight="160"
-                                 Foreground="#FFFFD600" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                 Grid.Row="0" Grid.Column="0"/>
-            <materialDesign:Card
-                Background="{DynamicResource PrimaryHueLightBrush}"
-                Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Margin="10" 
+                    Grid.Row="0" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+            <materialDesign:PackIcon Kind="Account" 
+                                     Width="auto" 
+                                     Height="auto" 
+                                     MaxHeight="160"
+                                     Foreground="#FFFFD600" 
+                                     VerticalAlignment="Center" 
+                                     HorizontalAlignment="Center"
+                                     Grid.Row="0" 
+                                     Grid.Column="0"/>
+            <materialDesign:Card Background="{DynamicResource PrimaryHueLightBrush}" 
+                                 Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Center">
                     <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
-                        Content="Удалить" Margin="10"/>
+                            Content="Удалить" 
+                            Margin="10"/>
                     <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
-                        Content="Изменить" Margin="10"/>
+                            Content="Изменить" 
+                            Margin="10"/>
                 </StackPanel>
             </materialDesign:Card>
         </StackPanel>
-        <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="10"
-                    Background="#FF455A64" BorderBrush="#FFFFD600" >
+        <TabControl Grid.Row="1" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="3" 
+                    Margin="10"
+                    Background="#FF455A64" 
+                    BorderBrush="#FFFFD600" >
             <TabControl.Resources>
-                <Style x:Key="TabItemStyle1" TargetType="{x:Type TabItem}">
+                <Style x:Key="TabItemStyle1" 
+                       TargetType="{x:Type TabItem}">
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TabItem}">
-                                <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="#FFFFD600" CornerRadius="4,4,0,0" Margin="2,0">
+                                <Border Name="Border" 
+                                        BorderThickness="1,1,1,0" 
+                                        BorderBrush="#FFFFD600" 
+                                        CornerRadius="4,4,0,0" 
+                                        Margin="2,0">
                                     <ContentPresenter x:Name="ContentSite"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"
-                                        ContentSource="Header"
-                                        Margin="10,2"/>
+                                                      VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center" 
+                                                      ContentSource="Header"
+                                                      Margin="10,2"/>
                                 </Border>
                                 <ControlTemplate.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="Black"/>
-                                        <Setter TargetName="Border" Property="Background" Value="#FFFFD600"/>
+                                    <Trigger Property="IsSelected" 
+                                             Value="True">
+                                        <Setter Property="TextElement.Foreground" 
+                                                TargetName="ContentSite" 
+                                                Value="Black"/>
+                                        <Setter TargetName="Border" 
+                                                Property="Background" Value="#FFFFD600"/>
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
                                         <Setter Property="TextElement.Foreground" Value="#DDFFFFFF"/>
@@ -97,9 +121,6 @@
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
-                        <!--<Style TargetType="DataGridCell">
-                            <Setter Property="TextWrapping"
-                        </Style>-->
                     </DataGrid.Resources>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Начало занятия" 
@@ -108,16 +129,12 @@
                                             Binding="{Binding Beginningtime}"/>
                         <DataGridTextColumn Header="Конец занятия"
                                             Width="*"
-                                            x:Name="WorkoutEndtime" 
+                                            x:Name="WorkoutEndtime"
                                             Binding="{Binding Endtime}"/>
-                        <!--<DataGridTextColumn Header="Вид занятия" 
-                                            Width="auto" 
-                                            x:Name="WorkoutTypeTraining" 
-                                            Binding="{Binding Path=TypeTraining}"/>-->
                         <DataGridTextColumn Header="Зал" 
                                             Width="*"
                                             x:Name="WorkoutHall" 
-                                            Binding="{Binding ClientWorkouts.Hall.Name}"/>
+                                            Binding="{Binding Hall.Name}"/>
                         <DataGridTextColumn Header="Услуга" 
                                             Width="*" 
                                             x:Name="WorkoutService" 
@@ -125,59 +142,18 @@
                         <DataGridTextColumn Header="Тренер" 
                                             Width="*" 
                                             x:Name="WorkoutEmployee" 
-                                            Binding="{Binding Path=Employee.Name}"/>
+                                            Binding="{Binding Employee.Name}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <!--<TabItem Style="{DynamicResource TabItemStyle1}">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Notifications" 
-                                                 Width="auto" Height="auto"/>
-                        <TextBlock Text="Уведомления" FontSize="15"/>
-                    </StackPanel>
-                </TabItem.Header>
-                <DataGrid FontSize="12" materialDesign:DataGridAssist.CornerRadius="0" 
-                              x:Name="ClientNotif" AutoGenerateColumns="false" IsReadOnly="True">
-                    <DataGrid.Resources>
-                        <Style TargetType="DataGrid">
-                            <Setter Property="Background" Value="#FF455A64"/>
-                        </Style>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Background" Value="#FF455A64"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="BorderBrush" Value="Black"/>
-                            <Setter Property="BorderThickness" Value="1"/>
-                        </Style>
-                        <Style TargetType="DataGridRow">
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="Background" Value="#FFFFD600"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Trigger>
-                                <Trigger Property="IsSelected" Value="False">
-                                    <Setter Property="Background" Value="#FF455A64"/>
-                                    <Setter Property="Foreground" Value="White"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGrid.Resources>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Менеджер" Width="auto" 
-                                            x:Name="NotifCreator" Binding="{Binding Path=Creator.Name}"/>
-                        <DataGridTextColumn Header="Дата" Width="auto" 
-                                            x:Name="NotifTime" Binding="{Binding Path=CreateTime}"/>
-                        <DataGridTextColumn Header="Сообщение" Width="auto" 
-                                            x:Name="NotifMessage" Binding="{Binding Path=Message}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>-->
             <TabItem Style="{DynamicResource TabItemStyle1}">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="CardBulletedOutline" 
-                                                 Width="auto" Height="auto"/>
-                        <TextBlock Text="Карты" FontSize="15"/>
+                                                 Width="auto" 
+                                                 Height="auto"/>
+                        <TextBlock Text="Карты" 
+                                   FontSize="15"/>
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
@@ -185,8 +161,12 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid FontSize="12" materialDesign:DataGridAssist.CornerRadius="0" 
-                              x:Name="ClientClientCard" AutoGenerateColumns="false" IsReadOnly="True">
+                    <DataGrid FontSize="12"
+                              materialDesign:DataGridAssist.CornerRadius="0" 
+                              x:Name="ClientClientCard"
+                              ItemsSource="{Binding Cards}"
+                              AutoGenerateColumns="false" 
+                              IsReadOnly="True">
                         <DataGrid.Resources>
                             <Style TargetType="DataGrid">
                                 <Setter Property="Background" Value="#FF455A64"/>
@@ -211,16 +191,22 @@
                             </Style>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Width="auto" 
-                                            x:Name="ClientCardName" Binding="{Binding Path=Name}"/>
-                            <DataGridTextColumn Header="Номер" Width="auto" 
-                                            x:Name="ClientCard_ID" Binding="{Binding Path=Card_ID}"/>
+                            <DataGridTextColumn Header="Номер" 
+                                                Width="*" 
+                                                x:Name="ClientCardNumber" 
+                                                Binding="{Binding ClientcardId}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <materialDesign:Card Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                         Background="{DynamicResource PrimaryHueLightBrush}" Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+                    <materialDesign:Card Grid.Column="1" 
+                                         VerticalAlignment="Center" 
+                                         HorizontalAlignment="Center"
+                                         Background="{DynamicResource PrimaryHueLightBrush}" 
+                                         Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
                         <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
-                        Content="Добавить" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                Content="Добавить" 
+                                Margin="20" 
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center"/>
                     </materialDesign:Card>
                 </Grid>
             </TabItem>
@@ -228,12 +214,18 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Contract" 
-                                                 Width="auto" Height="auto"/>
-                        <TextBlock Text="Договора" FontSize="15"/>
+                                                 Width="auto" 
+                                                 Height="auto"/>
+                        <TextBlock Text="Договора" 
+                                   FontSize="15"/>
                     </StackPanel>
                 </TabItem.Header>
-                <DataGrid FontSize="12" materialDesign:DataGridAssist.CornerRadius="0" 
-                              x:Name="ClientContract" AutoGenerateColumns="false" IsReadOnly="True">
+                <DataGrid FontSize="12" 
+                          materialDesign:DataGridAssist.CornerRadius="0" 
+                          x:Name="ClientContract"
+                          ItemsSource="{Binding Contracts}"
+                          AutoGenerateColumns="false" 
+                          IsReadOnly="True">
                     <DataGrid.Resources>
                         <Style TargetType="DataGrid">
                             <Setter Property="Background" Value="#FF455A64"/>
@@ -258,14 +250,22 @@
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Номер" Width="auto" 
-                                            x:Name="ContractNumber" Binding="{Binding Path=Number}"/>
-                        <DataGridTextColumn Header="Дата заключения" Width="auto" 
-                                            x:Name="ContractBegin" Binding="{Binding Path=BeginTime}"/>
-                        <DataGridTextColumn Header="Время окончания" Width="auto" 
-                                            x:Name="ContractEnd" Binding="{Binding Path=EndTime}"/>
-                        <DataGridTextColumn Header="Содержимое" Width="auto" 
-                                            x:Name="ContractContent" Binding="{Binding Path=Content}"/>
+                        <DataGridTextColumn Header="Номер" 
+                                            Width="*" 
+                                            x:Name="ContractNumber" 
+                                            Binding="{Binding ContractId}"/>
+                        <DataGridTextColumn Header="Дата заключения" 
+                                            Width="*" 
+                                            x:Name="ContractBegin" 
+                                            Binding="{Binding Beginningtime}"/>
+                        <DataGridTextColumn Header="Время окончания" 
+                                            Width="*" 
+                                            x:Name="ContractEnd" 
+                                            Binding="{Binding Endtime}"/>
+                        <DataGridTextColumn Header="Содержимое" 
+                                            Width="*" 
+                                            x:Name="ContractContent" 
+                                            Binding="{Binding Pass.Name}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
@@ -273,12 +273,18 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Dollar" 
-                                                 Width="auto" Height="auto"/>
-                        <TextBlock Text="Платежи" FontSize="15"/>
+                                                 Width="auto" 
+                                                 Height="auto"/>
+                        <TextBlock Text="Платежи" 
+                                   FontSize="15"/>
                     </StackPanel>
                 </TabItem.Header>
-                <DataGrid FontSize="12" materialDesign:DataGridAssist.CornerRadius="0" 
-                              x:Name="ClientPayment" AutoGenerateColumns="false" IsReadOnly="True">
+                <DataGrid FontSize="12" 
+                          materialDesign:DataGridAssist.CornerRadius="0" 
+                          x:Name="ClientPayment"
+                          ItemsSource="{Binding Payments}"
+                          AutoGenerateColumns="false" 
+                          IsReadOnly="True">
                     <DataGrid.Resources>
                         <Style TargetType="DataGrid">
                             <Setter Property="Background" Value="#FF455A64"/>
@@ -303,12 +309,18 @@
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Дата" Width="auto" 
-                                            x:Name="PaymentDate" Binding="{Binding Path=CreateTime}"/>
-                        <DataGridTextColumn Header="Номер контакта" Width="auto" 
-                                            x:Name="PaymentContract" Binding="{Binding Path=Contract.Number}"/>
-                        <DataGridTextColumn Header="Сумма платежа" Width="auto" 
-                                            x:Name="PaymentAmount" Binding="{Binding Path=Amount}"/>
+                        <DataGridTextColumn Header="Дата" 
+                                            Width="*" 
+                                            x:Name="PaymentTime" 
+                                            Binding="{Binding Time}"/>
+                        <DataGridTextColumn Header="Номер контакта" 
+                                            Width="*" 
+                                            x:Name="PaymentContractId" 
+                                            Binding="{Binding ContractId}"/>
+                        <DataGridTextColumn Header="Сумма платежа" 
+                                            Width="*" 
+                                            x:Name="PaymentAmount" 
+                                            Binding="{Binding Amount}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
@@ -316,12 +328,18 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="DoorOpen" 
-                                                 Width="auto" Height="auto"/>
-                        <TextBlock Text="Посещения" FontSize="15"/>
+                                                 Width="auto" 
+                                                 Height="auto"/>
+                        <TextBlock Text="Посещения" 
+                                   FontSize="15"/>
                     </StackPanel>
                 </TabItem.Header>
-                <DataGrid FontSize="12" materialDesign:DataGridAssist.CornerRadius="0" 
-                              x:Name="ClientVisit" AutoGenerateColumns="false" IsReadOnly="True">
+                <DataGrid FontSize="12" 
+                          materialDesign:DataGridAssist.CornerRadius="0" 
+                          x:Name="ClientVisit"
+                          ItemsSource="{Binding Visits}"
+                          AutoGenerateColumns="false" 
+                          IsReadOnly="True">
                     <DataGrid.Resources>
                         <Style TargetType="DataGrid">
                             <Setter Property="Background" Value="#FF455A64"/>
@@ -346,14 +364,22 @@
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Дата и время входа" Width="auto" 
-                                            x:Name="VisitEntrance" Binding="{Binding Path=Entrance}"/>
-                        <DataGridTextColumn Header="Дата и время выхода" Width="auto" 
-                                            x:Name="VisitExit" Binding="{Binding Path=Exit}"/>
-                        <DataGridTextColumn Header="Филиал" Width="auto" 
-                                            x:Name="VisitBranch" Binding="{Binding Path=Branch.Name}"/>
-                        <DataGridTextColumn Header="Адрес" Width="auto" 
-                                            x:Name="VisitAddress" Binding="{Binding Path=Branch.Address}"/>
+                        <DataGridTextColumn Header="Дата и время входа" 
+                                            Width="*" 
+                                            x:Name="VisitEntrance" 
+                                            Binding="{Binding Entrance}"/>
+                        <DataGridTextColumn Header="Дата и время выхода" 
+                                            Width="*" 
+                                            x:Name="VisitExit" 
+                                            Binding="{Binding Exit}"/>
+                        <DataGridTextColumn Header="Филиал" 
+                                            Width="*" 
+                                            x:Name="VisitBranch" 
+                                            Binding="{Binding Branch.Name}"/>
+                        <DataGridTextColumn Header="Адрес" 
+                                            Width="*" 
+                                            x:Name="VisitAddress" 
+                                            Binding="{Binding Branch.Address}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
