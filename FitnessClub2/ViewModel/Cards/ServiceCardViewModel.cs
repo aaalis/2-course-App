@@ -78,17 +78,6 @@ namespace FitnessClub2.ViewModel.Cards
             }
         }
 
-        //private List<Contract> serviceContracts;
-        //public List<Contract> ServiceContracts
-        //{
-        //    get { return serviceContracts; }
-        //    set
-        //    {
-        //        serviceContracts = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
         private List<Pass> servicePass;
         public List<Pass> ServicePass
         {
@@ -164,30 +153,6 @@ namespace FitnessClub2.ViewModel.Cards
                 {
                     ServicePass.Add(fc.Passes.Where(x => x.PassId == item).Single());
                 }
-
-                //ClientWorkouts = fc.ClientsWorkouts.Include(x => x.Workout)
-                //                                        .ThenInclude(x => x.Hall)
-                //                                   .Include(x => x.Workout)
-                //                                        .ThenInclude(x => x.Employee)
-                //                                   .Include(x => x.Workout)
-                //                                        .ThenInclude(x => x.Service)
-                //                                   .Where(x => x.ClientId == Client.ClientId)
-                //                                   .Select(x => x.Workout)
-                //                                   .ToList();
-
-                //ServiceEmployees = fc.Clientcards.Include(x => x.Visits)
-                //                      .ThenInclude(x => x.Branch)
-                //                      .Where(x => x.ClientId == Client.ClientId)
-                //                      .ToList();
-
-                //ServiceContracts = fc.Contracts.Include(x => x.Pass)
-                //                        .Where(x => x.ClientId == Client.ClientId)
-                //                        .ToList();
-
-                //ServicePass = fc.Payments.Where(x => x.ClientId == Client.ClientId)
-                //                      .ToList();
-
-                //Visits = ServiceEmployees.SelectMany(x => x.Visits).ToList();
             }
         }
 

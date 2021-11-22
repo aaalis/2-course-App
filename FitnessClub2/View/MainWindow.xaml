@@ -34,10 +34,13 @@
                       DataType="{x:Type cardviewmodel:ServiceCardViewModel}">
             <cardview:ServiceCardControl DataContext="{Binding}"/>
         </DataTemplate>
-        <!--<DataTemplate x:Name="PassTemplate" DataType="{x:Type viewmodels:PassViewModel}">
+        <DataTemplate x:Name="PassTemplate" DataType="{x:Type viewmodel:PassViewModel}">
             <view:PassControl DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="ContractTemplate" DataType="{x:Type viewmodels:ContractViewModel}">
+        <DataTemplate x:Name="PassCardTemplate" DataType="{x:Type cardviewmodel:PassCardViewModel}">
+            <cardview:PassCardControl DataContext="{Binding}"/>
+        </DataTemplate>
+        <!--<DataTemplate x:Name="ContractTemplate" DataType="{x:Type viewmodels:ContractViewModel}">
             <view:ContractControl DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate x:Name="PaymentTemplate" DataType="{x:Type viewmodels:PaymentViewModel}">
@@ -105,7 +108,7 @@
                 <StackPanel Orientation="Horizontal" 
                             HorizontalAlignment="Right" 
                             Margin="10">
-                    <materialDesign:Chip Height="40" 
+                    <!--<materialDesign:Chip Height="40" 
                                          Width="200" 
                                          Content="User Amplua" 
                                          HorizontalAlignment="Right" 
@@ -124,7 +127,7 @@
                                                      Height="24" 
                                                      Width="24" />
                         </materialDesign:Chip.Icon>
-                    </materialDesign:Chip>
+                    </materialDesign:Chip>-->
 
                     <Button
                         Style="{StaticResource MaterialDesignFloatingActionMiniButton}"

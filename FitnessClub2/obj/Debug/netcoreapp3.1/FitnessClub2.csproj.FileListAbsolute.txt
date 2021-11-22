@@ -51,3 +51,7 @@ D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\Cards\ServiceC
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\ServiceControl.g.cs
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\Cards\ServiceCardControl.baml
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\ServiceControl.baml
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\Cards\PassCardControl.g.cs
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\PassControl.g.cs
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\Cards\PassCardControl.baml
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\PassControl.baml

@@ -10,10 +10,16 @@
     <Compile Update="View\Cards\ClientCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Cards\PassCardControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Cards\ServiceCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ClientControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PassControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ServiceControl.xaml.cs">
@@ -24,6 +30,9 @@
     <Page Update="View\Cards\ClientCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\Cards\PassCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\Cards\ServiceCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -31,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ClientControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PassControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ServiceControl.xaml">

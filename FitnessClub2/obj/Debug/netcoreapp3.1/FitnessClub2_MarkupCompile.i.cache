@@ -1,5 +1,5 @@
 ﻿FitnessClub2
-
+1.0.0.0
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\LABS\C#\FitnessClub2\FitnessClub2\App.xaml
 7-1842709632
 
-37-1973440807
+39-1532266128
 210-1566345543
 View\Cards\ClientCardControl.xaml;View\Cards\PassCardControl.xaml;View\Cards\ServiceCardControl.xaml;View\ClientControl.xaml;View\MainWindow.xaml;View\PassControl.xaml;View\ServiceControl.xaml;
 
-False
+True
 

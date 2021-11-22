@@ -1,4 +1,4 @@
-﻿using FitnessClub2.ViewModel.Cards;
+﻿using FitnessClub2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,18 +12,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FitnessClub2.View.Cards
+namespace FitnessClub2.View
 {
     /// <summary>
-    /// Логика взаимодействия для ServiceCardControl.xaml
+    /// Логика взаимодействия для PassControl.xaml
     /// </summary>
-    public partial class ServiceCardControl : UserControl
+    public partial class PassControl : UserControl
     {
-        public ServiceCardControl()
+        public PassControl()
         {
             InitializeComponent();
 
-            DataContext = ServiceCardViewModel.Instance;
+            DataContext = PassViewModel.Instance;
         }
     }
 }

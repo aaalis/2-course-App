@@ -69,11 +69,11 @@ namespace FitnessClub2.ViewModel
         //    MainContentViewModel = ContractViewModel.Instance;
         //}));
 
-        //private Command passCommand;
-        //public Command PassCommand => passCommand ?? (passCommand = new Command(obj =>
-        //{
-        //    MainContentViewModel = PassViewModel.Instance;
-        //}));
+        private Command passCommand;
+        public Command PassCommand => passCommand ?? (passCommand = new Command(obj =>
+        {
+            MainContentViewModel = PassViewModel.Instance;
+        }));
 
         private Command servicesCommand;
         public Command ServicesCommand => servicesCommand ?? (servicesCommand = new Command(obj =>

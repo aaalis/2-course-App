@@ -15,15 +15,15 @@ using System.Windows.Shapes;
 namespace FitnessClub2.View.Cards
 {
     /// <summary>
-    /// Логика взаимодействия для ServiceCardControl.xaml
+    /// Логика взаимодействия для PassCardControl.xaml
     /// </summary>
-    public partial class ServiceCardControl : UserControl
+    public partial class PassCardControl : UserControl
     {
-        public ServiceCardControl()
+        public PassCardControl()
         {
             InitializeComponent();
 
-            DataContext = ServiceCardViewModel.Instance;
+            DataContext = PassCardViewModel.Instance;
         }
     }
 }
