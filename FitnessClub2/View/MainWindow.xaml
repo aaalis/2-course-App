@@ -26,6 +26,12 @@
         <DataTemplate x:Name="TBWorkShiftTemplate" DataType="{x:Type viewmodels:TBWorkShiftViewModel}">
             <view:TBWorkShiftControl DataContext="{Binding}"/>
         </DataTemplate>-->
+        <DataTemplate x:Name="BranchTemplate" DataType="{x:Type viewmodel:BranchViewModel}">
+            <view:BranchControl DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="BranchCardTemplate" DataType="{x:Type cardviewmodel:BranchCardViewModel}">
+            <cardview:BranchCardControl DataContext="{Binding}"/>
+        </DataTemplate>
         <DataTemplate x:Name="ServiceTemplate" 
                       DataType="{x:Type viewmodel:ServiceViewModel}">
             <view:ServiceControl DataContext="{Binding}"/>
@@ -70,9 +76,7 @@
         <DataTemplate x:Name="WorkShiftCardTemplate" DataType="{x:Type viewmodels:WorkShiftCardViewModel}">
             <view:WorkShiftCardControl DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="PassCardTemplate" DataType="{x:Type viewmodels:PassCardViewModel}">
-            <view:PassCardControl DataContext="{Binding}"/>
-        </DataTemplate>
+        
         <DataTemplate x:Name="ContractCardTemplate" DataType="{x:Type viewmodels:ContractCardViewModel}">
             <view:ContractCardControl DataContext="{Binding}"/>
         </DataTemplate>
@@ -85,12 +89,7 @@
         <DataTemplate x:Name="NotifCardTemplate" DataType="{x:Type viewmodels:NotifCardViewModel}">
             <view:NotifCardControl DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="BranchTemplate" DataType="{x:Type viewmodels:BranchViewModel}">
-            <view:BranchControl DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="BranchCardTemplate" DataType="{x:Type viewmodels:BranchCardViewModel}">
-            <view:BranchCardControl DataContext="{Binding}"/>
-        </DataTemplate>
+        
         <DataTemplate x:Name="HallCardTemplate" DataType="{x:Type viewmodels:HallCardViewModel}">
             <view:HallCardControl DataContext="{Binding}"/>
         </DataTemplate>-->
@@ -166,7 +165,7 @@
                             VerticalAlignment="Center" 
                             Height="Auto" 
                             Width="Auto">
-                    <!--<Button Style="{StaticResource MaterialDesignRaisedButton}" 
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" 
                             Height="Auto"
                             Width="Auto"
                             Command="{Binding TBWorkoutsCommand}"
@@ -203,7 +202,7 @@
                                        FontSize="18" 
                                        HorizontalAlignment="Right" />
                         </StackPanel>
-                    </Button>-->
+                    </Button>
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
                             Height="Auto" 
                             Width="Auto" 
@@ -280,12 +279,12 @@
                                        HorizontalAlignment="Left"/>
                         </StackPanel>
                     </Button>
-                    <!--<Button Style="{StaticResource MaterialDesignRaisedButton}" Height="Auto" Width="Auto" Margin="5" Click="PaymentButton_Click">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="Auto" Width="Auto" Margin="5">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="170">
                             <materialDesign:PackIcon Kind="CurrencyUsd" Height="25" Width="45" HorizontalAlignment="Left"/>
                             <TextBlock Text="Оплата" FontSize="18" HorizontalAlignment="Left"/>
                         </StackPanel>
-                    </Button>-->
+                    </Button>
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
                             Height="Auto" 
                             Width="Auto"

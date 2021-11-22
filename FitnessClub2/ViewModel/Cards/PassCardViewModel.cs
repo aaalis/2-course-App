@@ -67,16 +67,16 @@ namespace FitnessClub2.ViewModel.Cards
             }
         }
 
-        private string branchNameTextBox;
-        public string BranchNameTextBox
-        {
-            get { return branchNameTextBox; }
-            set
-            {
-                branchNameTextBox = value;
-                OnPropertyChanged();
-            }
-        }
+        //private string branchNameTextBox;
+        //public string BranchNameTextBox
+        //{
+        //    get { return branchNameTextBox; }
+        //    set
+        //    {
+        //        branchNameTextBox = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         private List<Service> passServices;
         public List<Service> PassServices
@@ -152,7 +152,7 @@ namespace FitnessClub2.ViewModel.Cards
 
                 AmountdaysTextBox = Pass.Amountdays;
 
-                BranchNameTextBox = Pass.Branch.Name;
+                
 
                 PassServices = fc.PassServices.Include(x => x.Service).Where(x => x.PassId == Pass.PassId).Select(x=>x.Service).ToList();
 

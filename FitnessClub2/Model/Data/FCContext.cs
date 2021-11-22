@@ -62,7 +62,7 @@ namespace FitnessClub2
                     .HasMaxLength(200)
                     .HasColumnName("address");
 
-                entity.Property(e => e.IdDeleted).HasColumnName("idDeleted");
+                entity.Property(e => e.IsDeleted).HasColumnName("isDeleted");
 
                 entity.Property(e => e.Name)
                     .IsRequired()

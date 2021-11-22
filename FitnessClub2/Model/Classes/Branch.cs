@@ -20,7 +20,7 @@ namespace FitnessClub2.Model.Classes
         public int BranchId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public bool? IdDeleted { get; set; }
+        public bool? IsDeleted { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
         public virtual ICollection<Hall> Halls { get; set; }

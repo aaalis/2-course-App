@@ -56,11 +56,7 @@ namespace FitnessClub2.ViewModel
 
                     pass.Name = $"new + {dateTime}";
 
-                    pass.Branch = new Branch();
-
-                    pass.Branch.Name = "new";
-
-                    pass.Branch.Address = "new";
+                    pass.BranchId = FilteredListPass.Select(x => x.BranchId).First();
 
                     FilteredListPass.RemoveAt(FilteredListPass.Count - 1);
 

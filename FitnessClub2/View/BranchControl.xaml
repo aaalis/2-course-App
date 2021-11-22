@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="FitnessClub2.View.PassControl"
+﻿<UserControl x:Class="FitnessClub2.View.BranchControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -44,16 +44,16 @@
                                     <TextBox Margin="10,0,5,0"
                                              MinWidth="100"
                                              Height="25"
-                                             Text="{Binding FilterBranch, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                             Text="{Binding FilterAddress, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                              BorderBrush="Black"
-                                             materialDesign:HintAssist.Hint="Филиал" 
+                                             materialDesign:HintAssist.Hint="Адрес" 
                                              Background="White"/>
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel>
                                 <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
                                         Content="Добавить"
-                                        Command="{Binding AddPass}"
+                                        Command="{Binding AddBranch}"
                                         Margin="10"/>
                             </StackPanel>
                         </StackPanel>
@@ -70,25 +70,21 @@
                     Content="Результат" 
                     VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <Grid Background="White">
-                <ListView ItemsSource="{Binding FilteredListPass, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                <ListView ItemsSource="{Binding FilteredListBranches, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                           FontSize="12" 
-                          SelectedItem="{Binding SelectedPass}">
+                          SelectedItem="{Binding SelectedBranch}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDoubleClick">
-                            <i:InvokeCommandAction Command="{Binding EditPass}" 
-                                                   CommandParameter="{Binding SelectedPass}"/>
+                            <i:InvokeCommandAction Command="{Binding EditBranch}" 
+                                                   CommandParameter="{Binding SelectedBranch}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Name}"
                                             Header="Название" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Price}"
-                                            Header="Цена" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Amountdays}"
-                                            Header="Длительность" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Branch.Name}"
-                                            Header="Филиал" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Address}"
+                                            Header="Адрес" />
                         </GridView>
                     </ListView.View>
                 </ListView>

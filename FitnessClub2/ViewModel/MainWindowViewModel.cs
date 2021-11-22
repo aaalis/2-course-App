@@ -51,11 +51,11 @@ namespace FitnessClub2.ViewModel
             MainContentViewModel = ClientViewModel.Instance;
         }));
 
-        //private Command branchesCommand;
-        //public Command BranchesCommand => branchesCommand ?? (branchesCommand = new Command(obj =>
-        //{
-        //    MainContentViewModel = BranchViewModel.Instance;
-        //}));
+        private Command branchesCommand;
+        public Command BranchesCommand => branchesCommand ?? (branchesCommand = new Command(obj =>
+        {
+            MainContentViewModel = BranchViewModel.Instance;
+        }));
 
         //private Command employeesCommand;
         //public Command EmployeesCommand => employeesCommand ?? (employeesCommand = new Command(obj =>
