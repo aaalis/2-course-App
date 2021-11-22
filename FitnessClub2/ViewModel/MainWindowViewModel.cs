@@ -75,11 +75,11 @@ namespace FitnessClub2.ViewModel
         //    MainContentViewModel = PassViewModel.Instance;
         //}));
 
-        //private Command servicesCommand;
-        //public Command ServicesCommand => servicesCommand ?? (servicesCommand = new Command(obj =>
-        //{
-        //    MainContentViewModel = ServiceViewModel.Instance;
-        //}));
+        private Command servicesCommand;
+        public Command ServicesCommand => servicesCommand ?? (servicesCommand = new Command(obj =>
+        {
+            MainContentViewModel = ServiceViewModel.Instance;
+        }));
 
         //private Command tBWorkshiftsCommand;
         //public Command TBWorkshiftsCommand => tBWorkshiftsCommand ?? (tBWorkshiftsCommand = new Command(obj =>

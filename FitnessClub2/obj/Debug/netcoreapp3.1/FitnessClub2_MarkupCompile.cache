@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\LABS\C#\FitnessClub2\FitnessClub2\App.xaml
-31653686789
+5-1950511232
 
-29-2064699164
+33351512034
 210-1566345543
-View\Cards\ClientCardControl.xaml;View\ClientControl.xaml;View\MainWindow.xaml;
+View\Cards\ClientCardControl.xaml;View\Cards\ServiceCardControl.xaml;View\ClientControl.xaml;View\MainWindow.xaml;View\ServiceControl.xaml;
 
 False
 

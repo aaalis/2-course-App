@@ -10,7 +10,13 @@
     <Compile Update="View\Cards\ClientCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Cards\ServiceCardControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ClientControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ServiceControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,10 +24,16 @@
     <Page Update="View\Cards\ClientCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\Cards\ServiceCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ClientControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ServiceControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

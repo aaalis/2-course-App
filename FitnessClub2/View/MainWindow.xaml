@@ -25,14 +25,16 @@
         </DataTemplate>
         <DataTemplate x:Name="TBWorkShiftTemplate" DataType="{x:Type viewmodels:TBWorkShiftViewModel}">
             <view:TBWorkShiftControl DataContext="{Binding}"/>
-        </DataTemplate>
-        <DataTemplate x:Name="ServiceTemplate" DataType="{x:Type viewmodels:ServiceViewModel}">
+        </DataTemplate>-->
+        <DataTemplate x:Name="ServiceTemplate" 
+                      DataType="{x:Type viewmodel:ServiceViewModel}">
             <view:ServiceControl DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="ServiceCardTemplate" DataType="{x:Type viewmodels:ServiceCardViewModel}">
-            <view:ServiceCardControl DataContext="{Binding}"/>
+        <DataTemplate x:Name="ServiceCardTemplate" 
+                      DataType="{x:Type cardviewmodel:ServiceCardViewModel}">
+            <cardview:ServiceCardControl DataContext="{Binding}"/>
         </DataTemplate>
-        <DataTemplate x:Name="PassTemplate" DataType="{x:Type viewmodels:PassViewModel}">
+        <!--<DataTemplate x:Name="PassTemplate" DataType="{x:Type viewmodels:PassViewModel}">
             <view:PassControl DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate x:Name="ContractTemplate" DataType="{x:Type viewmodels:ContractViewModel}">
@@ -161,7 +163,7 @@
                             VerticalAlignment="Center" 
                             Height="Auto" 
                             Width="Auto">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" 
+                    <!--<Button Style="{StaticResource MaterialDesignRaisedButton}" 
                             Height="Auto"
                             Width="Auto"
                             Command="{Binding TBWorkoutsCommand}"
@@ -198,7 +200,7 @@
                                        FontSize="18" 
                                        HorizontalAlignment="Right" />
                         </StackPanel>
-                    </Button>
+                    </Button>-->
                     <Button Style="{StaticResource MaterialDesignRaisedButton}" 
                             Height="Auto" 
                             Width="Auto" 

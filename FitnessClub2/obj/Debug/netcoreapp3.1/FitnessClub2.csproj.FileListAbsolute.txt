@@ -47,3 +47,7 @@ D:\LABS\C#\FitnessClub2\FitnessClub2\bin\Debug\netcoreapp3.1\System.Windows.Inte
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\ClientControl.baml
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\Cards\ClientCardControl.g.cs
 D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\Cards\ClientCardControl.baml
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\Cards\ServiceCardControl.g.cs
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\ServiceControl.g.cs
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\Cards\ServiceCardControl.baml
+D:\LABS\C#\FitnessClub2\FitnessClub2\obj\Debug\netcoreapp3.1\View\ServiceControl.baml

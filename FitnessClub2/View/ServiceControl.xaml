@@ -1,0 +1,197 @@
+﻿<UserControl x:Class="FitnessClub2.View.ServiceControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:FitnessClub2.View" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FF607D8B" >
+        <StackPanel VerticalAlignment="Top" Height="auto" Width="auto">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <materialDesign:Card
+                    Background="{DynamicResource PrimaryHueLightBrush}"
+                    Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
+                    Padding="8" 
+                    Margin="10" 
+                    VerticalAlignment="Stretch">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <Button  
+                                        Content="Поиск" 
+                                        Background="{DynamicResource PrimaryHueMidBrush}"
+                                        Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                                        Margin="10"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Margin="5,0,10,0"
+                                             MinWidth="100"
+                                             Height="25"
+                                             Text="{Binding FilterName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                             BorderBrush="Black"
+                                             materialDesign:HintAssist.Hint="Название"
+                                             Background="White"/>
+                                    <TextBox Margin="5,0,10,0"
+                                             MinWidth="100"
+                                             Height="25"
+                                             Text="{Binding FilterAvtime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                             BorderBrush="Black"
+                                             materialDesign:HintAssist.Hint="Длительность"
+                                             Background="White"/>
+                                    <!--<TextBox Margin="5,0,10,0"
+                                             MinWidth="100"
+                                             Height="25"
+                                             Text="{Binding FilterPhonenum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                             BorderBrush="Black"
+                                             materialDesign:HintAssist.Hint="Цена"
+                                             Background="White"/>-->
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel>
+                                <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
+                                        Content="Добавить"
+                                        Command="{Binding AddService}"
+                                        Margin="10"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </materialDesign:Card>
+                <!--<materialDesign:Card
+                    Background="{DynamicResource PrimaryHueLightBrush}"
+                    Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
+                    Padding="8" Margin="10" VerticalAlignment="Stretch">
+                    <StackPanel>
+                        <Button  Content="Поиск" 
+                                 Background="{DynamicResource PrimaryHueMidBrush}" 
+                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" 
+                                 Margin="10"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Margin="5,0,10,0"
+                                             MinWidth="100"
+                                             Height="25"
+                                             Text="{Binding FilterPhonenum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                             BorderBrush="Black"
+                                             materialDesign:HintAssist.Hint="Название"
+                                             Background="White"/>
+                            <TextBox Margin="5,0,10,0"
+                                             MinWidth="100"
+                                             Height="25"
+                                             Text="{Binding FilterPhonenum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                             BorderBrush="Black"
+                                             materialDesign:HintAssist.Hint="Длительность"
+                                             Background="White"/>
+                            <TextBox Margin="5,0,10,0"
+                                             MinWidth="100"
+                                             Height="25"
+                                             Text="{Binding FilterPhonenum, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                             BorderBrush="Black"
+                                             materialDesign:HintAssist.Hint="Цена"
+                                             Background="White"/>
+                            --><!--<TextBox Margin="5" MinWidth="100" 
+                                     materialDesign:HintAssist.Hint="Название"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                     Background="White"/>
+                            <TextBox Margin="5" MinWidth="100" 
+                                     materialDesign:HintAssist.Hint="Длительность"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White"/>
+                            <TextBox Margin="5" MinWidth="100" 
+                                     materialDesign:HintAssist.Hint="Цена"
+                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" Background="White"/>--><!--
+                        </StackPanel>
+                    </StackPanel>
+                </materialDesign:Card>
+                <materialDesign:Card
+                    Background="{DynamicResource PrimaryHueLightBrush}"
+                    Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
+                    Padding="8" Margin="10" VerticalAlignment="Stretch">
+                    <StackPanel VerticalAlignment="Center">
+                        <Button Style="{StaticResource MaterialDesignRaisedAccentButton}" 
+                        Content="Создать" Margin="10"/>
+                    </StackPanel>
+                </materialDesign:Card>-->
+            </StackPanel>
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Button
+                Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                materialDesign:RippleAssist.IsDisabled="True" Margin="5" 
+                Content="Результат" 
+                VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <Grid Background="White">
+                    <ListView ItemsSource="{Binding FilteredListServices, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                          FontSize="12" 
+                          SelectedItem="{Binding SelectedService}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDoubleClick">
+                                <i:InvokeCommandAction Command="{Binding EditService}" 
+                                                   CommandParameter="{Binding SelectedService}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"
+                                                Header="Название" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Avtime}"
+                                                Header="Длительность" />
+                                <!--<GridViewColumn DisplayMemberBinding="{Binding PhoneNum}"
+                                            Header="Номер телефона" />-->
+                                <!--<GridViewColumn Header="Options">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox Width="100">
+                                            <ComboBoxItem Content="Test" />
+                                            <ComboBoxItem Content="Test2" />
+                                            <ComboBoxItem Content="Test3" />
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>-->
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+                <!--<DataGrid FontSize="12" materialDesign:DataGridAssist.CornerRadius="0" HorizontalAlignment="Center" 
+                              x:Name="Services" AutoGenerateColumns="false" IsReadOnly="True">
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGrid">
+                            <Setter Property="Background" Value="#FF455A64"/>
+                        </Style>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#FF455A64"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                        </Style>
+                        <Style TargetType="DataGridRow">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFFFD600"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <Setter Property="Background" Value="#FF455A64"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" MinWidth="200" 
+                                            Width="auto" 
+                                            x:Name="ServiceName" 
+                                            Binding="{Binding Path=Name}"/>
+                        <DataGridTextColumn Header="Длительность, минут" 
+                                            MinWidth="200" 
+                                            Width="auto" x:Name="ServiceAvTime" 
+                                            Binding="{Binding Path=AvTime}"/>
+                        <DataGridTextColumn Header="Цена" 
+                                            MinWidth="200" 
+                                            Width="auto" x:Name="ServicePrice" 
+                                            Binding="{Binding Path=Price}"/>
+                    </DataGrid.Columns>
+                </DataGrid>-->
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
+
