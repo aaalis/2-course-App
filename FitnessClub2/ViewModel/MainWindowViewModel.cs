@@ -33,9 +33,7 @@ namespace FitnessClub2.ViewModel
 
         public MainWindowViewModel()
         {
-            
-            
-            MainContentViewModel = null;
+            MainContentViewModel = ClientViewModel.Instance;
         }
 
         #region buttons
