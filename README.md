@@ -1,7 +1,14 @@
 # 2-course-App
-- MVVM
+Десктопное приложение финтес-клуба. 
+
+## Технологический стек
+- C#
+- WPF
 - Entity Framework
 - MaterialDesign
+## Архитектура
+- MVVM
 
-![](https://i.ibb.co/Gt0dPBx/fc1.jpg)
-![](https://i.ibb.co/5nPh88v/fc2.jpg)
+## Скриншоты
+<img src="images/fc1.jpg" width="500">
+<img src="images/fc2.jpg" width="500">
